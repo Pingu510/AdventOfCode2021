@@ -1,6 +1,11 @@
 import os.path
 
 
+def hello(name:str):
+    greeting = "Hello " + name
+    print(greeting)
+    return greeting
+
 def get_relative_dir(inputfile):
     current_directory = os.path.dirname(__file__)
     parent_directory = os.path.split(current_directory)[0]
