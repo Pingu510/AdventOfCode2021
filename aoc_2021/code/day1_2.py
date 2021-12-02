@@ -10,11 +10,10 @@ def get_average_increase(input):
     return count
 
 import helpers
-inputfile = "inputs\day1_1_input.txt"
-file_path = helpers.get_relative_dir(inputfile)
+input_path = "inputs\day1_1_input.txt"
+file_path = helpers.get_relative_dir(input_path)
+input = helpers.get_file_as_list(file_path)
 
-with open(file_path) as file:
-    input = [line.strip() for line in file]
 count = get_average_increase(input)
 
 print("Number of increases: " + str(count))
