@@ -39,6 +39,20 @@ class Test_Day2:
         assert result == 900
 
 class Test_Day3:
-    def test_gamma_with_test_input(self):
+    def test_input_part_1_end_result(self):
+        from aoc_2021.solutions.day3_A import get_gamma, get_epsilon_from_gamma
         test_input = ['00100', '11110', '10110', '10111', '10101', '01111', '00111', '11100', '10000', '11001', '00010', '01010']
-        print(int(test_input[0], 1))
+        
+        gamma = get_gamma(test_input)
+        epsilon = get_epsilon_from_gamma(gamma)
+        result = gamma * epsilon
+        assert result == 198
+
+    def test_input_part_2_end_result(self):
+        from aoc_2021.solutions.day3_B import get_list_matching_criteria, get_list_matching_criteria, get_int_from_bit
+        test_input = ['00100', '11110', '10110', '10111', '10101', '01111', '00111', '11100', '10000', '11001', '00010', '01010']
+        
+        oxygen_rating = get_list_matching_criteria(test_input, True)
+        co2_scrubber = get_list_matching_criteria(test_input, False)
+        result = get_int_from_bit(oxygen_rating) * get_int_from_bit(co2_scrubber)
+        assert result == 230
