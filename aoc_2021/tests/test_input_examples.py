@@ -37,3 +37,8 @@ class Test_Day2:
         
         result = get_resulting_position(test_input)
         assert result == 900
+
+class Test_Day3:
+    def test_gamma_with_test_input(self):
+        test_input = ['00100', '11110', '10110', '10111', '10101', '01111', '00111', '11100', '10000', '11001', '00010', '01010']
+        print(int(test_input[0], 1))
