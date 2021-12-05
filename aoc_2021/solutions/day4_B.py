@@ -5,7 +5,7 @@ def calculate_board(bingo_board: list, winning_number: int):
     sum = 0
     for row in bingo_board:
         for number in row:
-            if(number[1] == False):
+            if(number[1] == True):
                 sum += int(number[0])
     return sum * winning_number
 
@@ -87,16 +87,19 @@ for input_row in input_bingo:
 
 # draw sequence
 finished = False
-number_index = 0
-while (number_index < len(numbers) and finished != True):
+number_index = len(numbers) -1
+while (number_index >= 0 and finished != True):
     for board in bingo_boards:
         # insert number into board and calculate adjecent True
         # if adjecent > 4 = BINGO
         winner = find_number_in_bingo_board(board, int(numbers[number_index]))
         if(winner != None):
+            
             #for bingo calculate sum of all False * last number
             result = calculate_board(winner, int(numbers[number_index]))
             print("Final score: " + str(result))
             finished = True
             break
-    number_index += 1
+    number_index -= 1
+
+    ##answers 5625 24839
