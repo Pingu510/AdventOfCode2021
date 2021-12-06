@@ -26,7 +26,7 @@ print(str(lanternfish))
 
 # itterate days
 days = 0
-while days < 80:
+while days < 256: # part 1 = 80 days part 2 = 156 days
     days += 1
     # get zeros
     zeroes = lanternfish[0]        
