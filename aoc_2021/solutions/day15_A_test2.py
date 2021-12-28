@@ -1,15 +1,17 @@
 # Python3 program to find if there is path
 # from top left to right bottom
-row = 5
-col = 5
+from types import resolve_bases
+
 
 # to find the path from
 # top left to bottom right
 def isPath(arr) :
+	row = len(arr)
+	col = len(arr[0])
 
 	# directions
 	Dir = [ [0, 1], [0, -1], [1, 0], [-1, 0]]
-	
+	visited = []
 	# queue
 	que = []
 	path_count = 0
@@ -23,11 +25,14 @@ def isPath(arr) :
 		
         # add count to 
 		# mark as visited
+		visited.append(("y" + str(p[0]), "x" + str(p[1]), arr[p[0]][p[1]]))
+		path_count += arr[p[0]][p[1]]
 		arr[p[0]][p[1]] = -1
+
 		
 		# destination is reached.
 		if(p == (row - 1, col - 1)) :
-			return True
+			return (visited, path_count)
 			
 		# check all four directions
 		for i in range(4) :
@@ -48,10 +53,16 @@ arr = [ [ 0, 0, 0, -1, 0 ],
 		[ -1, 0, -1, 0, -1 ],
 		[ 0, 0, 0, 0, 0 ] ]
 
+arr2 = [ [ 0, -1, 0 ],
+		[ 0, -1, -1 ],
+		[ 0, 0, 0 ],
+		[ -1, -1, 0 ]]
+
 # path from arr[0][0] to arr[row][col]
-if (isPath(arr)) :
-	print("Yes")
-else :
+result = isPath(arr2)
+if (result == False) :
 	print("No")
+else :
+	print(str(result[1]))
 
 	# This code is contributed by divyesh072019
